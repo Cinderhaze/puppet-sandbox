@@ -1,0 +1,19 @@
+Steps I've done to puppet-sandbox
+(following https://github.com/puppetlabs/r10k/blob/master/doc/dynamic-environments/quickstart.mkd)
+gem install r10k
+create /etc/r10k.yaml 
+# The location to use for storing cached Git repos
+:cachedir: '/var/cache/r10k'
+
+# A list of git repositories to create
+:sources:
+  # This will clone the git repository and instantiate an environment per
+  # branch in /etc/puppet/environments
+  :my-org:
+    remote: 'git@github.com:$_Insert GitHub Organization Here_$/$_Insert GitHub Repository That Will Be Used For Your Puppet Code Here_$'
+    basedir: '/etc/puppet/environments'
+
+
+
+Added jenkins to Vagrantfile and updated hosts.erb
+pulled down the module for rtyler-jenkins... I'll need to manage that with r10k or puppet-lib
